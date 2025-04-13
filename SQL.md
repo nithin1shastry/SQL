@@ -20,3 +20,11 @@
 | 2      | salary                | 20000 |
 | 2      | bonus                 | 1000  |
 | 2      | hike_percent          | 20    |
+
+![Screenshot 2025-04-13 at 3 21 19 PM](https://github.com/user-attachments/assets/914296b7-1a6b-437b-a8fc-446e42269924)
+
+
+![Screenshot 2025-04-13 at 3 21 52 PM](https://github.com/user-attachments/assets/74dabb7c-c1ed-4b00-9a94-89395df2996b)
+
+
+![Screenshot 2025-04-13 at 3 23 16 PM](https://github.com/user-attachments/assets/8493b13c-9094-4663-8c3a-2d07ea131fdd)

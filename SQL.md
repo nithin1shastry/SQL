@@ -72,6 +72,8 @@
 
   
 6. Second highest Salary in each department.
+
+
    **RANK() will skip the next rank if there is a tie in data, so if you have two rank 1's, the next rank will be rank 3. DENSE_RANK() will not permit gaps in ranks and will always increment even if there is a tie. So if you have two rank 1's, the next rank will always be rank 2**
 
    ![Screenshot 2025-04-14 at 5 14 26 PM](https://github.com/user-attachments/assets/29e9c720-a8af-4c8f-9da2-ab506dab04be)
@@ -82,7 +84,23 @@
 
    ![Screenshot 2025-04-14 at 5 17 14 PM](https://github.com/user-attachments/assets/9b82fe20-2712-4980-9606-f6e75d6738c7)
 
+7. Find all transaction done by Shilpa
+   ```
+      SELECT * FROM orders WHERE upper(customer_name) = 'SHILPA'
+   ```
+
+8. Self join, manager salary > emp salary
    
+
+9. difference between joins, left join, inner join.
+    - Inner join -> all records common in both table
+    - Left join -> All data in left table and common data from right table
+
+10. Update query to swap gender.
+
+    ![Screenshot 2025-04-14 at 5 23 42 PM](https://github.com/user-attachments/assets/d3d5c281-5c16-4539-a0b3-14a96507cb45)
+
+   ![Screenshot 2025-04-14 at 5 24 19 PM](https://github.com/user-attachments/assets/081ee2e6-3372-47c6-a0ef-69df8136a71e)
 
 
 

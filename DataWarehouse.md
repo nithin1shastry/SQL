@@ -1,6 +1,11 @@
 Resource - https://www.youtube.com/playlist?list=PLUWdEQb_2yqX21c8Wv6ai0yZ93cQSnDJg
 
 ## Fact tables and types of fact tables
+
+- Facts - Facts are the measurable, quantitative data in a data warehouse. They are the numbers we care about analyzing — like sales amount, quantity sold, revenue, profit, etc.
+- Dimensions are the descriptive context for facts. They answer the who, what, where, when, and how behind the numbers.
+- "Facts are the numeric values we want to analyze, like sales or quantity. Dimensions provide the context for those facts, like time, customer, product, or region. In a star or snowflake schema, fact tables are linked to dimension tables, which allows flexible and powerful analysis."
+  
 - Not every fact table will have surrogate key
   
 - Surrogate key - A surrogate key is a unique identifier for a record in a table that has no business meaning — it's purely used for uniquely identifying each row.

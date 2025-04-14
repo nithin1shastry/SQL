@@ -49,8 +49,8 @@
 
    ![Screenshot 2025-04-14 at 4 59 33 PM](https://github.com/user-attachments/assets/f29a63bc-d15f-4b01-a3ed-d2646287a7b4)
 
-5. Difference between rank, row_number and dense_rank
-6. Employees who are not present in department table
+4. Difference between rank, row_number and dense_rank
+5. Employees who are not present in department table
    ![Screenshot 2025-04-14 at 5 01 05 PM](https://github.com/user-attachments/assets/a43f6810-6c14-4e11-9d82-227ea730e014)
 
    In the above screenshot, emp from dept 100, 300 are there in dept table but not 200 and 900
@@ -69,6 +69,24 @@
    ![Screenshot 2025-04-14 at 5 07 15 PM](https://github.com/user-attachments/assets/14e3cd93-293e-493f-89b3-13612379dda3)
 
   ![Screenshot 2025-04-14 at 5 07 41 PM](https://github.com/user-attachments/assets/87f010d9-3ae5-4b7e-8b62-6b5aa7c02298)
+
+  
+6. Second highest Salary in each department.
+   **RANK() will skip the next rank if there is a tie in data, so if you have two rank 1's, the next rank will be rank 3. DENSE_RANK() will not permit gaps in ranks and will always increment even if there is a tie. So if you have two rank 1's, the next rank will always be rank 2**
+
+   ![Screenshot 2025-04-14 at 5 14 26 PM](https://github.com/user-attachments/assets/29e9c720-a8af-4c8f-9da2-ab506dab04be)
+
+   ![Screenshot 2025-04-14 at 5 14 36 PM](https://github.com/user-attachments/assets/79f5d7fe-c71e-4ec0-ad39-e253436f0065)
+
+   ![Screenshot 2025-04-14 at 5 14 54 PM](https://github.com/user-attachments/assets/a69e0d22-c115-479a-be30-21a71e0cf3df)
+
+   ![Screenshot 2025-04-14 at 5 17 14 PM](https://github.com/user-attachments/assets/9b82fe20-2712-4980-9606-f6e75d6738c7)
+
+   
+
+
+
+
 
   
 

@@ -28,3 +28,49 @@
 
 
 ![Screenshot 2025-04-13 at 3 23 16 PM](https://github.com/user-attachments/assets/8493b13c-9094-4663-8c3a-2d07ea131fdd)
+
+## Top 10 SQL interview Q's and Answers
+1. How to find duplicates in a given table
+   ```
+   SELECT emp_id, COUNT(1) from emp group by emp_id having COUNT(1)>1;
+   ```
+2. How to delete duplicates
+  ```
+  with CTE AS (SELECT *, row_number() OVER (PARTITION BY emp_id order by emp_id) AS rn from emp1)
+  DELETE FROM cte WHERE rn > 1;
+
+  ```
+3. Difference between Union and union all
+   - Suppose if I have 8 records in table 1 and 9 records in table 2 where table 2 has one duplicate record, union all will get 17 records (all from first + all from second)
+   - union will give unique values, remove duplicate
+   ![Screenshot 2025-04-14 at 4 58 53 PM](https://github.com/user-attachments/assets/f874b91e-f3ad-4f75-ac85-dccda3ad7216)
+
+   ![Screenshot 2025-04-14 at 4 59 03 PM](https://github.com/user-attachments/assets/b012cbe9-472c-4a84-900c-23265a0f3cbf)
+
+   ![Screenshot 2025-04-14 at 4 59 33 PM](https://github.com/user-attachments/assets/f29a63bc-d15f-4b01-a3ed-d2646287a7b4)
+
+5. Difference between rank, row_number and dense_rank
+6. Employees who are not present in department table
+   ![Screenshot 2025-04-14 at 5 01 05 PM](https://github.com/user-attachments/assets/a43f6810-6c14-4e11-9d82-227ea730e014)
+
+   In the above screenshot, emp from dept 100, 300 are there in dept table but not 200 and 900
+
+   ```
+   SELECT * FROM emp WHERE department_id NOT IN (SELECT dept_id FROM dept);
+   ```
+   Sub queries are not efficient
+
+   ```
+   SELECT emp.*, dept.dep_id, dept.dep_name FROM emp
+   LEFT JOIN dept
+   ON emp.department_id = dept.dep_id
+   WHERE dept.dep_name IS NULL
+   ```
+   ![Screenshot 2025-04-14 at 5 07 15 PM](https://github.com/user-attachments/assets/14e3cd93-293e-493f-89b3-13612379dda3)
+
+  ![Screenshot 2025-04-14 at 5 07 41 PM](https://github.com/user-attachments/assets/87f010d9-3ae5-4b7e-8b62-6b5aa7c02298)
+
+  
+
+
+

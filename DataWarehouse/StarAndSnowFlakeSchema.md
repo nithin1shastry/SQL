@@ -61,6 +61,7 @@ Notice how **“Alice” and “New York” are repeated** — that’s **redund
 
 ---
 
+"In ETL, we load dimension tables first because fact tables rely on them. Fact tables store foreign keys that reference dimensions, so if the dimensions aren't loaded first, the fact data can’t properly connect. Loading dimensions first ensures referential integrity and allows us to accurately map relationships."
 
 
 

@@ -15,6 +15,54 @@
   ![Screenshot 2025-04-14 at 7 59 14 PM](https://github.com/user-attachments/assets/c6005618-e8e3-4c41-9c52-c12fd2958807)
 
 
+Great question — this is often asked in interviews, especially when discussing **data warehousing** or **reporting systems**.
+
+---
+
+### 🔹 Why does a **denormalized table** contain redundant values?
+
+> A **denormalized table** contains **redundant (repeated) values** because it combines data from multiple related tables — often by **joining dimension tables into the fact table** — to improve **read performance and simplify querying**.
+
+---
+
+### ✅ Example:
+
+Imagine you have normalized tables like this:
+
+#### Customer Table (Dimension):
+| Customer_ID | Name   | City     |
+|-------------|--------|----------|
+| 1           | Alice  | New York |
+| 2           | Bob    | Chicago  |
+
+#### Sales Table (Fact):
+| Sale_ID | Customer_ID | Amount |
+|---------|-------------|--------|
+| 101     | 1           | 200    |
+| 102     | 2           | 150    |
+| 103     | 1           | 300    |
+
+Now if we **denormalize**, we join customer info into the sales table:
+
+#### Denormalized Sales Table:
+| Sale_ID | Customer_ID | Name   | City     | Amount |
+|---------|-------------|--------|----------|--------|
+| 101     | 1           | Alice  | New York | 200    |
+| 102     | 2           | Bob    | Chicago  | 150    |
+| 103     | 1           | Alice  | New York | 300    |
+
+Notice how **“Alice” and “New York” are repeated** — that’s **redundant**, but it allows you to query everything in one place without joins.
+
+---
+
+### 🎯 Interview-friendly explanation:
+
+> "Denormalized tables contain redundant values because they combine data from multiple normalized tables into one. This avoids complex joins and improves query performance, especially for reporting and analytics. While it increases storage and can lead to data duplication, it speeds up read-heavy operations, which is often the goal in data warehousing."
+
+---
+
+
+
 
 
 

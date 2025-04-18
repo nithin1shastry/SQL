@@ -23,3 +23,20 @@ WHERE session_type IN ('viewer', 'streamer')
 GROUP BY user_id
 HAVING COUNT(DISTINCT session_type) = 2;  
 ```
+4. https://platform.stratascratch.com/coding/10308-salaries-differences?code_type=3
+```
+WITH marketing_salary AS (
+   SELECT MAX(emp.salary) AS max_salary
+   FROM db_employee emp
+   JOIN db_dept dept ON emp.department_id = dept.id
+   WHERE dept.department = 'marketing'
+),
+engineering_salary AS (
+   SELECT MAX(emp.salary) AS max_salary
+   FROM db_employee emp
+   JOIN db_dept dept ON emp.department_id = dept.id
+   WHERE dept.department = 'engineering'
+ )
+SELECT ABS(marketing_salary.max_salary-engineering_salary.max_salary) AS salary_difference
+FROM marketing_salary, engineering_salary;
+```

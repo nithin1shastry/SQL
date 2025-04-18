@@ -59,6 +59,27 @@ SELECT employee_id, salary, department,
 FROM ranked_salaries
 WHERE rank_desc=1 OR rank_asc=1;
 
+ANOTHER SOLUTION
+
+SELECT 
+    worker_id AS employee_id,
+    salary,
+    department,
+    'Highest Salary' AS salary_type
+FROM worker
+WHERE salary = (SELECT MAX(salary) FROM worker)
+
+UNION ALL
+
+SELECT 
+    worker_id AS employee_id,
+    salary,
+    department,
+    'Lowest Salary' AS salary_type
+FROM worker
+WHERE salary = (SELECT MIN(salary) FROM worker);
+
+
 
 ```
 

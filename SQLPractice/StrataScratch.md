@@ -40,3 +40,25 @@ engineering_salary AS (
 SELECT ABS(marketing_salary.max_salary-engineering_salary.max_salary) AS salary_difference
 FROM marketing_salary, engineering_salary;
 ```
+5. https://platform.stratascratch.com/coding/10152-workers-with-the-highest-and-lowest-salaries?code_type=1
+```
+WITH ranked_salaries AS (
+   SELECT
+      worker_id AS employee_id,
+      salary,
+      department,
+      RANK() OVER (ORDER BY salary DESC) AS rank_desc,
+      RANK() OVER (ORDER BY salary ASC) AS rand_asc
+   FROM worker
+)
+SELECT employee_id, salary, department,
+       CASE
+         WHEN rank_desc = 1 THEN 'Highest Salary'
+         WHEN rank_asc = 1 THEN 'Lowest Salary'
+      END AS salary_type
+FROM ranked_salaries
+WHERE rank_desc=1 OR rank_asc=1;
+
+
+```
+

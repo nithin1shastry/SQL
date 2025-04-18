@@ -14,3 +14,12 @@ FROM facebook_posts
 GROUP BY day_of_month
 ORDER BY day_of_month;
 ```
+3. https://platform.stratascratch.com/coding/2009-users-with-two-statuses?code_type=3
+
+```
+SELECT user_id
+FROM twitch_sessions
+WHERE session_type IN ('viewer', 'streamer')
+GROUP BY user_id
+HAVING COUNT(DISTINCT session_type) = 2;  
+```

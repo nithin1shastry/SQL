@@ -82,4 +82,75 @@ WHERE salary = (SELECT MIN(salary) FROM worker);
 
 
 ```
+6. https://platform.stratascratch.com/coding/2013-customer-average-orders?code_type=3
+```
+SELECT COUNT(DISTINCT customer_id), AVG(amount) FROM postmates_orders;
+```
+
+7. https://platform.stratascratch.com/coding/2017-paid-users-in-april-2020?code_type=3
+
+```
+   SELECT COUNT(DISTINCT c.user_id)
+   FROM rc_calls c
+   JOIN rc_users u ON c.user_id = u.user_id
+   WHERE u.status = 'paid'
+      AND c.call_date >= '2020-04-01'
+      AND c.call_date < '2020-05-01';
+```
+8. https://platform.stratascratch.com/coding/2018-inactive-free-users?code_type=3
+
+```
+   SELECT c.user_id
+   FROM rc_calls c
+   JOIN rc_users u ON c.user_id = u.user_id
+   WHERE u.status = 'free'
+   AND c.call_date < '2020-04-01' OR c.call_date >= '2020-05-01';
+```
+9. https://platform.stratascratch.com/coding/2024-unique-users-per-client-per-month?code_type=3
+```
+SELECT client_id,
+       MONTH(time_id) as month,
+       COUNT(DISTINCT user_id) as users_num
+FROM fact_events
+GROUP BY client_id,
+          MONTH(time_id)
+```
+10. https://platform.stratascratch.com/coding/2039-products-report-summary?code_type=3
+```
+SELECT 
+    p.product_category,
+    COUNT(DISTINCT t.transaction_id) AS number_of_transactions,
+    SUM(t.sales) AS total_sales
+FROM wfm_transactions t
+JOIN wfm_products p ON t.product_id = p.product_id
+WHERE YEAR(t.transaction_date) = 2017
+GROUP BY p.product_category
+HAVING SUM(t.sales) > 0
+ORDER BY total_sales DESC;
+```
+
+11. https://platform.stratascratch.com/coding/2043-employees-without-annual-review?code_type=3
+
+```
+SELECT ue.first_name, ue.last_name, ue.hire_date, ue.termination_date
+FROM uber_employees ue
+LEFT JOIN uber_annual_review r ON ue.id = r.emp_id
+WHERE r.emp_id IS NULL
+ORDER BY ue.hire_date DESC;
+
+```
+12. https://platform.stratascratch.com/coding/2049-total-order-per-status-per-service?code_type=3
+```
+SELECT
+    service_name,
+    order_status,
+    COUNT(*) AS total_orders
+FROM
+    orders
+GROUP BY
+    service_name,
+    order_status;
+
+```
+
 

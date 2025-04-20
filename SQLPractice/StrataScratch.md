@@ -152,5 +152,13 @@ GROUP BY
     order_status;
 
 ```
+13. https://platform.stratascratch.com/coding/2051-monthly-active-users?code_type=3
+```
+SELECT account_id, COUNT(DISTINCT user_id) AS distinct_user_count
+FROM sf_events
+WHERE YEAR(record_date) = 2021 AND MONTH(record_date) = 1
+GROUP BY account_id;
+```
+14. 
 
 

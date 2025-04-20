@@ -161,8 +161,47 @@ GROUP BY account_id;
 ```
 14. https://platform.stratascratch.com/coding/2052-user-growth-rate?code_type=3
 ```
-WITH 
+SELECT 
+    d.account_id,
+    (COUNT(DISTINCT CASE WHEN record_date BETWEEN '2021-01-01' AND '2021-01-31' THEN user_id END) * 1.0 / 
+     COUNT(DISTINCT CASE WHEN record_date BETWEEN '2020-12-01' AND '2020-12-31' THEN user_id END)) AS growth_rate
+FROM sf_events d
+GROUP BY d.account_id;
+
 ```
+15. https://platform.stratascratch.com/coding/2056-number-of-shipments-per-month?code_type=3
+```
+select count(shipment_id), DATE_FORMAT(shipment_date, '%Y-%m')  date_ym
+from amazon_shipment
+group by date_ym;
+```
+16. https://platform.stratascratch.com/coding/2057-weight-for-first-shipment?code_type=3
+```
+SELECT shipment_id, weight
+FROM amazon_shipment
+GROUP BY shipment_id
+HAVING MIN(shipment_date);
+```
+17. https://platform.stratascratch.com/coding/2058-total-shipment-weight?code_type=3
+```
+SELECT 
+    shipment_id, 
+    sub_id, 
+    weight, 
+    shipment_date, 
+    SUM(weight) OVER (PARTITION BY shipment_id) AS total_weight
+FROM amazon_shipment;
+```
+18. https://platform.stratascratch.com/coding/2061-users-with-many-searches?code_type=3
+```
+SELECT COUNT(DISTINCT user_id) AS num_users
+FROM fb_searches
+WHERE YEAR(date) = 2021 AND MONTH(date) = 8
+GROUP BY user_id
+HAVING COUNT(search_id) > 5;
+```
+
+
 
 
 

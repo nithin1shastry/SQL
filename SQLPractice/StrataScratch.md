@@ -159,6 +159,10 @@ FROM sf_events
 WHERE YEAR(record_date) = 2021 AND MONTH(record_date) = 1
 GROUP BY account_id;
 ```
-14. 
+14. https://platform.stratascratch.com/coding/2052-user-growth-rate?code_type=3
+```
+WITH 
+```
+
 
 
